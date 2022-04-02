@@ -16,8 +16,8 @@ for i in range(n + 1):
 
 print(final_dict)
 
-list1 = [int(item) for item in input("Enter the keys: ").split()]
-list2 = [int(item) for item in input("Enter the values: ").split()]
+list1 = [item for item in input("Enter the keys: ").split()]
+list2 = [item for item in input("Enter the values: ").split()]
 final_dict_2 = dict(zip(list1, list2))
 
 print(final_dict_2)

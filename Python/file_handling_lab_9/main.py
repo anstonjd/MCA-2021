@@ -1,5 +1,6 @@
 # Last Updated: 25 March 2022
-'''Write a python program to perform
+'''--------------------------------------------------------------------------------------------------------------------
+Write a python program to perform
 
 i) Reverse in descending order, union in ascending order, intersection in ascending order using the input present in the file.
 
@@ -8,7 +9,8 @@ ii) Print the output as well as save the file in the new file with file name as 
 
 iii) Output of reverse, union, intersection should be printed in newline.
 
-iv) Copy the program file from existing file destination to location where your input and out file is present.'''
+iv) Copy the program file from existing file destination to location where your input and out file is present.
+----------------------------------------------------------------------------------------------------------------------'''
 
 
 # TODO: REQUIREMENTS: CREATE A FILE NAMED 'input.txt' WHICH WILL HAVE THE INPUT YOU WANNA GIVE

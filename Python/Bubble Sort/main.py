@@ -10,6 +10,7 @@ from bubble_sort_module import bubble_sort as bb
 elements = []
 number_of_elements = int(input("Enter the number of elements: "))
 for i in range(number_of_elements):
-    elements.append(int(input(f"enter the element {i+1} : ")))
+    elements.append(int(input(f"enter the element {i + 1} : ")))
 
-print(bb.bubble_sort(elements))
+sorted_list = bb.bubble_sort(elements)
+print(sorted_list[::-1])
