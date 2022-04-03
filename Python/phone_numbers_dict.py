@@ -9,31 +9,37 @@ info = {}
 
 
 def input_elements():
-    name = input("Enter the name")
-    phone = int(input("Enter the phone Number"))
+    name = input("Enter the name: ")
+    phone = ""
+    while len(phone) != 10:
+        phone = str(input("Enter the phone Number: "))
     new_data = {
         "name": name,
         "phone": phone
-
     }
-    info[phone] = new_data
+    info[name] = new_data
+    print(new_data)
 
 
-def find_element(phone_num: int):
-    if info[phone_num]:
-        print(info[phone_num]['name'])
+def find_element(name: str):
+    if info[name]:
+        print(f"Phone number of name {name} is : {info[name]['phone']}")
     else:
         print("Not found")
 
 
 def main():
-    number_of_elements = int(input("Enter the number of elements"))
-    while number_of_elements > 0:
-        input_elements()
-        number_of_elements -= 1
 
-    phone_to_find = int(input("Enter the Phone number to find: "))
-    find_element(phone_to_find)
+    while True:
+        choice = int(input("Enter the choice \n1.Insert\t2.Find by Name\t3.Exit\nYour choice: "))
+        if choice == 1:
+            input_elements()
+        elif choice == 2:
+            find_element(str(input("Enter the name :")))
+        elif choice == 3:
+            break
+        else:
+            print("Invalid choice")
 
 
 main()
