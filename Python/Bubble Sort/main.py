@@ -6,11 +6,13 @@ and display the elements in descending order
 --------------------------------------------------------------------------------- '''
 
 from bubble_sort_module import bubble_sort as bb
+import array
 
-elements = []
+elements = array.array('i')
 number_of_elements = int(input("Enter the number of elements: "))
 for i in range(number_of_elements):
     elements.append(int(input(f"enter the element {i + 1} : ")))
 
 sorted_list = bb.bubble_sort(elements)
-print(sorted_list[::-1])
+for i in range(len(sorted_list)-1,-1,-1):
+    print(sorted_list[i],end="\t")
