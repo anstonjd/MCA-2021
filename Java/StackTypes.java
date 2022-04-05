@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 interface Stack {
-    void push(int item);
+    void push();
 
     void pop();
 
@@ -18,14 +18,13 @@ class Fstack implements Stack {
         st = new int[max];
     }
 
-    boolean isFull() {
-        return top == (max - 1);
-    }
-
-    public void push(int item) {
-        if (isFull()) {
+    public void push() {
+        if (top == max - 1) {
             System.out.println("Stack is full");
         } else {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the Element:");
+            item = sc.nextInt();
             st[++top] = item;
         }
     }
@@ -61,7 +60,10 @@ class Dstack implements Stack {
         st = new int[max];
     }
 
-    public void push(int item) {
+    public void push() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Element:");
+        item = sc.nextInt();
         if (top == (max - 1)) {
             int temp[] = new int[max * 2];
             for (int i = 0; i <= top; i++) {
@@ -70,7 +72,6 @@ class Dstack implements Stack {
             st = temp;
         }
         st[++top] = item;
-
     }
 
     public void pop() {
@@ -97,65 +98,43 @@ class Dstack implements Stack {
 
 class StackTypes {
     public static void main(String[] args) {
-        Fstack f = new Fstack(3);
-        Dstack d = new Dstack();
-        int ch, ch2, item;
         Scanner sc = new Scanner(System.in);
+        Stack s;
+        s = new Fstack(0);
+        int ch;
         outer: while (true) {
             System.out.println("Enter your choice 1.Fstack 2.Dstack 3.Exit:");
             ch = sc.nextInt();
             switch (ch) {
                 case 1:
-                    while (true) {
-                        System.out.println("Enter your choice 1.push 2.pop 3.display 4.Exit:");
-                        ch2 = sc.nextInt();
-                        switch (ch2) {
-                            case 1:
-                                if (f.isFull()) {
-                                    System.out.println("Stack is full");
-                                } else {
-                                    System.out.println("Enter the Element:");
-                                    item = sc.nextInt();
-                                    f.push(item);
-                                }
-                                break;
-                            case 2:
-                                f.pop();
-                                break;
-                            case 3:
-                                f.display();
-                                break;
-                            case 4:
-                                continue outer;
-                            default:
-                                System.out.println("\nwrong choice\n");
-                        }
-                    }
+                    s = new Fstack(5);
+                    break;
                 case 2:
-                    while (true) {
-                        System.out.println("Enter your choice 1.push 2.pop 3.display 4.Exit:");
-                        ch2 = sc.nextInt();
-                        switch (ch2) {
-                            case 1:
-                                System.out.println("Enter the Element:");
-                                item = sc.nextInt();
-                                d.push(item);
-                                break;
-                            case 2:
-                                d.pop();
-                                break;
-                            case 3:
-                                d.display();
-                                break;
-                            case 4:
-                                continue outer;
-                            default:
-                                System.out.println("\nwrong choice\n");
-                        }
-                    }
+                    s = new Dstack();
+                    break;
                 case 3:
-                    sc.close();
                     System.exit(0);
+                default:
+                    System.out.println("wrong choice");
+            }
+            while (true) {
+                System.out.println("Enter your choice 1.push 2.pop 3.display 4.Exit:");
+                ch = sc.nextInt();
+                switch (ch) {
+                    case 1:
+                        s.push();
+                        break;
+                    case 2:
+                        s.pop();
+                        break;
+                    case 3:
+                        s.display();
+                        break;
+                    case 4:
+                        continue outer;
+                    default:
+                        System.out.println("\nwrong choice\n");
+                }
             }
         }
     }
