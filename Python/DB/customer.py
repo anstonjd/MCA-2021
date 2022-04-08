@@ -26,7 +26,7 @@ class Customer:
 
     def print_data(self, cust_id=None):
         if cust_id is not None:
-            query = f"select * from customer where cust_id={cust_id}"
+            query = f"select * from customer where id={cust_id}"
         else:
             query = "select * from customer"
         data = cursor.execute(query)
@@ -70,7 +70,7 @@ while True:
         c.print_data()
     elif choice == 3:
         cust_id = int(input("Enter the customer number: "))
-        c.print_data()
+        c.print_data(cust_id)
     elif choice == 4:
         c.update_data()
     elif choice == 5:

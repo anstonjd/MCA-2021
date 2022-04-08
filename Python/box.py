@@ -38,5 +38,5 @@ class BoxShipment(BoxWeight):
         print(f"The shipment is {self.shipment}")
 
 
-bs = BoxShipment(4, 5, 6, 34, 650)
+bs = BoxShipment(29, 22, 40, 59, 2500)
 bs.dislplay()

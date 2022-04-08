@@ -1,45 +1,93 @@
-# last updated 2nd april 2022
-"""----------------------------------------------------------------------------------
-Lab 16
-Write a function called string_dict that will take as parameter a string. The string
-can have alphabets, spaces, question marks, periods and apostrophes only. The
-function returns a dictionary. The keys of the dictionary should be the words from
-the original string, and the values should be the frequency of that word.
 
----------------------------------------------------------------------------------"""
-
-
-class UnwantedElementsException(Exception):
-    def __init__(self, key):
-        self._errorMessage = key
-
-    def display_error(self):
-        print(f"Not a valid data: {self._errorMessage} ")
+students = [
+    ['Abit',
+     ['rdbms', 'python']
+    ],
+    ['Gladson',
+     ['python', 'stats']
+    ],
+    ['Kshithij',
+     ['rdbms', 'python', 'stats']
+    ],
+    ['ashlin',
+     ['rdbms']
+    ]
+]
 
 
-def string_dict(user_input: str):
-    try:
-        final_dict = {}
-        user_input_list = user_input.split(' ')
-        for ele in user_input_list:
-            flag = True
-            if not ele.isalnum():
-                if '?' not in ele and '.' not in ele:
-                    flag = False
-            if flag:
-                if ele in final_dict.keys():
-                    final_dict[ele] = final_dict[ele] + 1
-                else:
-                    final_dict[ele] = 1
-
-            else:
-                raise UnwantedElementsException(ele)
-
-        return final_dict
-    except UnwantedElementsException as uee:
-        uee.display_error()
+def insertData():
+    name = input('enter the name: ')
+    courses = []
+    while True:
+        courses.append(input("enter the subject: "))
+        if input("do you want to enter new subject: ").lower() != 'y':
+            break
+    students.append([name, courses])
 
 
-user_in = input("Enter the sentence: ")
-final_d = string_dict(user_in)
-print(final_d)
+while True:
+    print('''0) Insert
+1) List number of student who enrolled for python course.
+2) List number of student who enrolled for RDBMS Course Only
+3) List number of student who enrolled for RDBMS Python Only
+4) List number and name of the student for both RDBMS Python Only
+5) List number and name of the student for either RDBMS or Python not for both
+6) List number and name of the student for either RDBMS or Python.
+7) Exit
+''')
+    choice = int(input("insert the choice: "))
+    if choice == 0:
+        insertData()
+        print(students)
+    if choice == 1:
+        count = 0
+        for student in students:
+            if 'python' in student[1]:
+                count += 1
+        print(count)
+
+    if choice == 2:
+        count = 0
+        for student in students:
+            if len(student[1]) == 1 and 'rdbms' in student[1]:
+                count += 1
+        print(f'The count is {count}')
+
+    if choice == 3:
+        count = 0
+        for student in students:
+
+            if (len(student[1]) == 1) and ('rdbms' or 'python' in student[1]):
+                count += 1
+        print(f'The count is {count}')
+
+    if choice == 4:
+        count = 0
+        for student in students:
+            if (len(student[1]) == 2) and ('rdbms' in student[1] and 'python' in student[1]):
+                count += 1
+                print(student[0])
+        print(f'The count is {count}')
+
+    if choice == 5:
+        count = 0
+        for student in students:
+            both_are_there = 0
+            if 'rdbms' in student[1]:
+                both_are_there += 1
+            if 'python' in student[1]:
+                both_are_there += 1
+            if both_are_there == 1:
+                count += 1
+                print(student[0])
+        print(f'The count is {count}')
+
+    if choice == 6:
+        count = 0
+        for student in students:
+            if 'rdbms' or 'python' in student[1]:
+                count += 1
+                print(student[0])
+        print(f'The count is {count}')
+    if choice == 7:
+        break

@@ -9,7 +9,7 @@ allowed_chr = ['?', ' ', '.', "'"]
 string_acceptable = True
 flag = True
 for element in input_string:
-    if not element.isdigit() or not element.isalpha() or not element in allowed_chr:
+    if not element.isdigit() and not element.isalpha() and not element in allowed_chr:
         string_acceptable = False
 if string_acceptable:
     for i in range(int(len(input_string) / 2)):
@@ -19,4 +19,4 @@ if string_acceptable:
 
 print("Is palindorme" if flag and string_acceptable else "Not a palinrome")
 
-print("Is palindorme" if flag else "Not a palinrome")
+# print("Is palindorme" if flag else "Not a palinrome")
