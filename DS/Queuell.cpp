@@ -35,7 +35,12 @@ public:
     void Dequeue() {
         if (front == NULL) {
             cout << "Empty";
-        } else {
+        } else if(front == rear) {
+            cout<<front->data<<" Deleted";
+            free(front);
+            front = rear = NULL;
+        }else{
+        
             NODE temp;
             temp = front;
             front = front->next;

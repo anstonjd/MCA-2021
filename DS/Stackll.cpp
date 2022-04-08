@@ -44,7 +44,6 @@ public:
                 NODE cur;
                 cur = head;
                 while (cur->next != top) {
-                    cout << cur->data;
                     cur = cur->next;
                 }
                 cur->next = NULL;

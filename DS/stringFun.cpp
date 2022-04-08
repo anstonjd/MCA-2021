@@ -62,24 +62,40 @@ void compare() {
 }
 
 void substr() {
-    char str[30];
+    char str[30], sub[30];
     int s1, s2;
     int c1, c2;
-    cout << "Enter";
+    cout << "Enter the String";
     cin >> str;
-    cout << "Enter sub range";
-    cin >> s1 >> s2;
-    int i;
+    cout << "Enter the Sub string";
+    cin >> sub;
+    int i,j;
     for (i = 0; str[i]; i++);
-    int count = i;
-    if (s1 > s2) {
-        cout << "Range invalid";
-    } else if (s1 < count && s2 < count) {
-        for (i = s1; i <= s2; i++) {
-            cout << str[i];
-        }
+    int count1 = i;
+    for (i = 0; sub[i]; i++);
+    int count2 = i;
+    int x;
+    if (count1 < count2) {
+        cout << "Substring greater than Main string";
     } else {
-        cout << "invalid range";
+        bool flag;
+        for (i = 0; i < count1; i++) {
+            int k = 0;
+            flag = true;
+            for (j = i; j < i + count2; j++) {
+                if (str[j] != sub[k++]) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        if (flag) {
+            cout << i << " - " << j;
+        } else {
+            cout << "Not found";
+        }
     }
 
 }

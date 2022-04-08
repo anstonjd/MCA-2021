@@ -1,4 +1,3 @@
-//Priority Queue
 #include "iostream"
 
 using namespace std;
@@ -19,39 +18,32 @@ public:
         } else {
             cout << "Enter the element";
             cin >> item;
-            q[++r] = item;
+            if (r == -1) {
+                q[++r] = item;
+            } else {
+                int i = r;
+                while (q[i] > item && i >= 0) {
+                    q[i + 1] = q[i];
+                    i--;
+                }
+                q[++i] = item;
+                r++;
+            }
         }
     }
 
-    void del(bool flag) {
+    void deleteMin() {
         if (r == -1) {
             cout << "Queue is Empty \n";
-        } else if (r == 1) {
-            r--;
         } else {
-            int ele, loc, i;
-            ele = q[0];
-            loc = 0;
-            for (i = 1; i < r; i++) {
-                if (flag) {
-                    if (ele > q[i]) {
-                        ele = q[i];
-                        loc = i;
-                    }
-                } else {
-                    if (ele < q[i]) {
-                        ele = q[i];
-                        loc = i;
-                    }
-                }
+            cout << q[0] << "Deleted";
+            for (int i = 1; i < r; i++) {
+                q[i - 1] = q[i];
             }
-            for (i = loc; i < r ; ++i) {
-                q[i] = q[i + 1];
-            }
-            cout<<ele<<" Removed\n";
             r--;
         }
     }
+
 
     void display() {
         if (r == -1) {
@@ -60,33 +52,30 @@ public:
             for (int i = 0; i <= r; i++) {
                 cout << q[i] << "\t";
             }
-            cout<<"\n";
+            cout << "\n";
         }
     }
 };
 
 int main() {
     int n, ch;
-    cout << "Enter the size of stack";
+    cout << "Enter the size of Queue";
     cin >> n;
     priorityQ pq(n);
     while (true) {
-        cout << "Enter the choice : 1: Insert 2:Delete Min  3:Delete max 4:Display 5:exit";
+        cout << "Enter the choice : 1: Insert 2:Delete 3:Display 4:exit";
         cin >> ch;
         switch (ch) {
             case 1:
                 pq.insert();
                 break;
             case 2:
-                pq.del(true);
+                pq.deleteMin();
                 break;
             case 3:
-                pq.del(false);
-                break;
-            case 4:
                 pq.display();
                 break;
-            case 5:
+            case 4:
                 exit(0);
             default:
                 cout << "Wrong choice";
