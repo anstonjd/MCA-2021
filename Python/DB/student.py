@@ -1,4 +1,4 @@
-# last updated 2nd april 2022
+# last updated 8th april 2022
 """----------------------------------------------------------------------------------
 Lab 25
 Write a python application to generate student report card enter all the details of the
