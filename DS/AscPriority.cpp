@@ -37,7 +37,7 @@ public:
             cout << "Queue is Empty \n";
         } else {
             cout << q[0] << "Deleted";
-            for (int i = 1; i < r; i++) {
+            for (int i = 1; i <= r ; i++) {
                 q[i - 1] = q[i];
             }
             r--;

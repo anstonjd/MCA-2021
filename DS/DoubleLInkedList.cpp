@@ -110,9 +110,9 @@ int main() {
     dll l1;
     int ch;
     while (true) {
-        cout << "\nEnter the choice: "
-                "1: Insert Front \t2:Insert End \n"
-                "3:Delete Front \t4:Delete End \t7:Display \t9:Exit :";
+        cout << "Enter the choice: "
+                "1: Insert Front 2:Insert End "
+                "3:Delete Front 4:Delete End 7:Display 9:Exit :";
         cin >> ch;
         switch (ch) {
             case 1:

@@ -179,7 +179,7 @@ int main() {
     ll l1;
     int ch;
     while (true) {
-        cout << "\nEnter the choice: "
+        cout << "Enter the choice: "
                 "1: Insert Front \t2:Insert End \t3:Insert Location \n"
                 "4:Delete Front \t5:Delete End \t6:Delete Location\t7:Display \t9:Exit :";
         cin >> ch;

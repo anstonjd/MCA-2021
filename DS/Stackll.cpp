@@ -72,7 +72,7 @@ int main() {
     int ch;
     stackll stll;
     while (true) {
-        cout << "\nEnter the choice : 1: Push 2:Pop 3:Display 4:exit";
+        cout << "Enter the choice : 1: Push 2:Pop 3:Display 4:exit";
         cin >> ch;
         switch (ch) {
             case 1:

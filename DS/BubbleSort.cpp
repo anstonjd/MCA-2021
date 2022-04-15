@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {
     int n, i, j, temp,a[20];
+
     cout << "Enter the total number of elements";
     cin >> n;
     cout << "Enter the numbers";

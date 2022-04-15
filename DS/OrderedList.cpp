@@ -54,7 +54,7 @@ int main() {
     OrderedList ol;
     int ch;
     while (true) {
-        cout << "\nEnter the choice: "
+        cout << "Enter the choice: "
                 "1: Insert \t2: Display \t3: Exit :";
         cin >> ch;
         switch (ch) {

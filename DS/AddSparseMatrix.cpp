@@ -91,6 +91,7 @@ int main() {
 
     //3 Column Representation
     cout << endl;
+    cout<<"Row    Column  Value"<<endl;
     for (i = 0; i < x; i++) {
         cout << c[i][0] << "\t" << c[i][1] << "\t" << c[i][2] << endl;
     }

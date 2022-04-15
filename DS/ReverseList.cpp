@@ -65,6 +65,7 @@ public:
                 cout << temp->data << "\t";
                 temp = temp->next;
             }
+            cout<<endl;
         }
     }
 
@@ -91,7 +92,7 @@ int main() {
     ReverseList r1;
     int ch;
     while (true) {
-        cout << "\nEnter the choice: "
+        cout << "Enter the choice: "
                 "1: Insert Front \t2:Insert End \t3: Reverse List\t7:Display \t9:Exit :";
         cin >> ch;
         switch (ch) {

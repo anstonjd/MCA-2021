@@ -2,32 +2,11 @@ using namespace std;
 
 #include "iostream"
 
-void count() {
-    char str[30];
-    cout << "Enter";
-    cin >> str;
-    int i;
-    for (i = 0; str[i]; i++);
-    cout << i;
-}
-
-void reverse() {
-    char str[30];
-    cout << "Enter";
-    cin >> str;
-    int i;
-    for (i = 0; str[i]; i++);
-    int count = i;
-    for (i = count - 1; i >= 0; i--) {
-        cout << str[i];
-    }
-}
-
 void concat() {
     char str1[30], str2[30];
-    cout << "Enter 1";
+    cout << "Enter the string 1 ";
     cin >> str1;
-    cout << "Enter 2";
+    cout << "Enter the string 2 ";
     cin >> str2;
     int i;
     for (i = 0; str1[i]; i++);
@@ -41,9 +20,9 @@ void concat() {
 
 void compare() {
     char str1[30], str2[30];
-    cout << "Enter 1";
+    cout << "Enter the string 1 ";
     cin >> str1;
-    cout << "Enter 2";
+    cout << "Enter the string 2 ";
     cin >> str2;
     int i = 0;
     bool flag = true;
@@ -61,15 +40,48 @@ void compare() {
     }
 }
 
-void substr() {
+void reverse() {
+    char str[30];
+    cout << "Enter the string ";
+    cin >> str;
+    int i;
+    for (i = 0; str[i]; i++);
+    int count = i;
+    for (i = count - 1; i >= 0; i--) {
+        cout << str[i];
+    }
+}
+
+void subStr() {
+    char str[30];
+    int p1, p2;
+    cout << "Enter the string ";
+    cin >> str;
+    cout << "Enter the Sub string range ";
+    cin >> p1 >> p2;
+    int i;
+    for (i = 0; str[i]; i++);
+    int count = i;
+    if (p1 > p2) {
+        cout << "Invalid Range";
+    } else if (p1 < count && p2 < count) {
+        for (i = p1; i < p2; i++) {
+            cout << str[i];
+        }
+    } else {
+        cout << "Invalid Range";
+    }
+}
+
+void subStrPos() {
     char str[30], sub[30];
     int s1, s2;
     int c1, c2;
-    cout << "Enter the String";
+    cout << "Enter the String ";
     cin >> str;
-    cout << "Enter the Sub string";
+    cout << "Enter the Sub string ";
     cin >> sub;
-    int i,j;
+    int i, j;
     for (i = 0; str[i]; i++);
     int count1 = i;
     for (i = 0; sub[i]; i++);
@@ -104,23 +116,23 @@ int main() {
     int ch;
     while (true) {
         cout << "\n Enter the choice ";
-        cout << "1:Count 2:Reverse 3:ConCat 4:Compare 5:SubStr 6:Exit ";
+        cout << "1:ConCat 2:Compare 3:Reverse 4:SubStr 5:SubStr Position 6:Exit ";
         cin >> ch;
         switch (ch) {
             case 1:
-                count();
-                break;
-            case 2:
-                reverse();
-                break;
-            case 3:
                 concat();
                 break;
-            case 4:
+            case 2:
                 compare();
                 break;
+            case 3:
+                reverse();
+                break;
+            case 4:
+                subStr();
+                break;
             case 5:
-                substr();
+                subStrPos();
                 break;
             case 6:
                 exit(0);

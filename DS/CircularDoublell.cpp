@@ -117,8 +117,8 @@ int main() {
     cdll l1;
     int ch;
     while (true) {
-        cout << "\nEnter the choice:";
-        cout << "1: Insert Front \t2:Insert End\t3:Delete Beg \t4:Delete end \t7:Display\t9:Exit :";
+        cout << "Enter the choice:";
+        cout << "1: Insert Front 2:Insert End 3:Delete Beg 4:Delete end 7::Display 9:Exit :";
         cin >> ch;
         switch (ch) {
             case 1:

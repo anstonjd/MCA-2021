@@ -40,7 +40,7 @@ public:
             free(front);
             front = rear = NULL;
         }else{
-        
+
             NODE temp;
             temp = front;
             front = front->next;
@@ -67,7 +67,7 @@ int main() {
     int ch;
     queuell qull;
     while (true) {
-        cout << "\nEnter the choice : 1: Enqueue 2:Dequeue 3:Display 4:exit";
+        cout << "Enter the choice : 1: Enqueue 2:Dequeue 3:Display 4:exit";
         cin >> ch;
         switch (ch) {
             case 1:
